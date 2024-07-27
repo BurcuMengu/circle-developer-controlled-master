@@ -12,6 +12,8 @@ const {
   check_transfer_state,
 } = require("./helper_functions.js");
 
+const { approve_usdc, burn_usdc, get_attestation } = require("./cctp_functions.js");
+
 /*
 For this project, you need to create .env file with the following variables:
 API_KEY=
@@ -214,7 +216,7 @@ npm run start
 // ----- Step 7 -----
 
 // Get wallet balance
-get_balance();
+// get_balance();
 
 // Should return:
 // response: {
@@ -247,7 +249,7 @@ get_balance();
 // ----- Step 9 -----
 
 // Check transfer state
-// check_transfer_state("c7a1514d-d061-54bf-9baf-1132bd2bb5a3");
+// check_transfer_state("28f8faf5-ae63-5ab9-9aaf-02e8f1605fc5");
 
 // Should return:
 // response:  {
@@ -297,7 +299,7 @@ get_balance();
 
 // ----- Step 3 -----
 // Get Attestation
-// get_attestation();
+get_attestation();
 
 // ----- Step 4 -----
 // Mint USDC

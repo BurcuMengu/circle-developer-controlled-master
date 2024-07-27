@@ -55,8 +55,8 @@ const create_wallet_set = async () => {
 const create_wallet = async () => {
   const response = await circleDeveloperSdk.createWallets({
     accountType: "SCA",
-    blockchains: ["MATIC-AMOY"],
-    count: 2,
+    blockchains: ["MATIC-AMOY", "ETH-SEPOLIA"],
+    count: 1,
     walletSetId: `${process.env.WALLET_SET_ID}`,
   });
 
