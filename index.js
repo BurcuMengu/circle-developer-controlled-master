@@ -9,10 +9,15 @@ const {
   wallet_transactions,
   get_balance,
   transfer_token,
-  check_transfer_state,
 } = require("./helper_functions.js");
 
-const { approve_usdc, burn_usdc, get_attestation } = require("./cctp_functions.js");
+const {
+  approve_usdc,
+  burn_usdc,
+  get_attestation,
+  mint_usdc,
+  check_mint_transaction,
+} = require("./cctp_functions.js");
 
 /*
 For this project, you need to create .env file with the following variables:
@@ -299,8 +304,8 @@ npm run start
 
 // ----- Step 3 -----
 // Get Attestation
-get_attestation();
+// get_attestation();
 
 // ----- Step 4 -----
 // Mint USDC
-// mint_usdc();
+mint_usdc();

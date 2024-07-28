@@ -4,9 +4,7 @@ require("dotenv").config();
 const { generate_ciphertext } = require("./helper_functions.js");
 const Web3 = require("web3").default;
 
-const web3 = new Web3(
-  "https://sepolia.infura.io/v3/2925d9a9561b4f5cbd76023e3e6af296"
-);
+const web3 = new Web3("https://sepolia.infura.io/v3/ba21f94c62814b96b3042805e4229c10");
 
 const get_cipher_text = async () => {
   let ciphertext = generate_ciphertext(`${process.env.ENTITY_SECRET}`);
@@ -107,10 +105,18 @@ const get_attestation = async () => {
   let transaction = await fetch_deposit_transaction();
   console.log("transaction", transaction);
 
+  // Ensure the transaction object contains a valid transaction hash
+  const transactionHash = transaction.txHash; // transaction object includes this field (circle documentation is checked)
+  console.log("transaction hash (txHash): ", transactionHash);
+
+  if (!transactionHash) {
+    throw new Error("Transaction hash is missing from the transaction object.");
+  }
+
   // 2 - Decoding and Creating messageBytes and messageHash with a Web3 Library
   // Get messageBytes from EVM logs using tx_hash of thetransaction.
   const transactionReceipt = await web3.eth.getTransactionReceipt(
-    transaction.txHash
+    transactionHash
   );
   const eventTopic = web3.utils.keccak256("MessageSent(bytes)");
   const log = transactionReceipt.logs.find((l) => l.topics[0] === eventTopic);
