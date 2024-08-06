@@ -9,6 +9,7 @@ const {
   wallet_transactions,
   get_balance,
   transfer_token,
+  check_transfer_state,
 } = require("./helper_functions.js");
 
 const {
@@ -183,7 +184,7 @@ npm run start
 // ----- Step 6 -----
 
 // List wallet transactions
-// wallet_transactions();
+//wallet_transactions();
 
 // Should return:
 // response: {
@@ -254,7 +255,7 @@ npm run start
 // ----- Step 9 -----
 
 // Check transfer state
-// check_transfer_state("28f8faf5-ae63-5ab9-9aaf-02e8f1605fc5");
+//check_transfer_state("58f82d7e-da75-5e57-a265-74aa81ea50a8");
 
 // Should return:
 // response:  {
@@ -300,12 +301,12 @@ npm run start
 
 // ----- Step 2 -----
 // Burn USDC
-// burn_usdc();
+burn_usdc();
 
 // ----- Step 3 -----
 // Get Attestation
-// get_attestation();
+get_attestation();
 
 // ----- Step 4 -----
 // Mint USDC
-mint_usdc();
+//mint_usdc();

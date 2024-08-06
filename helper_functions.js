@@ -48,7 +48,7 @@ const create_wallet_set = async () => {
   const response = await circleDeveloperSdk.createWalletSet({
     name: "Set 1",
   });
-  console.log("response:", response);
+  console.log("response:", response.data);
 };
 
 // Create Wallet Set
